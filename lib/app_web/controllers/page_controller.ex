@@ -1,14 +1,11 @@
 defmodule AppWeb.PageController do
   use AppWeb, :controller
 
-  def index(conn, _params) do
-    with {:ok, marvel_data} <- Marvel.get_story() do
-      render(conn, "index.html", marvel_data)
-    else
-      err ->
-        conn
-        |> put_status(:not_found)
-        |> html(inspect(err))
+  def index(conn, %{league: league, season: season}) do
+    with {:ok, records} <- App.League.get_by(league, season) do
+      conn
+      |> put_status(:ok)
+      |> render("index.json", records: records)
     end
   end
 end
