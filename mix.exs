@@ -44,6 +44,8 @@ defmodule App.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:csv, "~> 2.2"},
+      {:ex_doc, "~> 0.19", only: :dev},
       {:distillery, "~> 2.0", runtime: false}
     ]
   end
