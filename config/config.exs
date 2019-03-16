@@ -14,6 +14,9 @@ config :app, AppWeb.Endpoint,
   render_errors: [view: AppWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: App.PubSub, adapter: Phoenix.PubSub.PG2]
 
+# Configures the File with the data.
+config :app, App.IO, file: "priv/data.csv"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
