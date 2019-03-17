@@ -1,4 +1,0 @@
-<h4> <%= @character.name %> </h4>
-<p>
-<img src=<%= @character.image %>></img>
-</p>
