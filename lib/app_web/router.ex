@@ -9,6 +9,6 @@ defmodule AppWeb.Router do
     pipe_through(:api)
 
     get("/leagues", LeagueController, :index)
-    get("/leagues/:league/seasons/:season", LeagueController, :show)
+    get("/leagues/:league/seasons/:season", LeagueController, :index)
   end
 end
