@@ -6,7 +6,9 @@ defmodule AppWeb.Router do
   end
 
   scope "/", AppWeb do
+    pipe_through(:api)
 
-    get "/", PageController, :index
+    get("/leagues", LeagueController, :index)
+    get("/leagues/:league/seasons/:season", LeagueController, :show)
   end
 end
