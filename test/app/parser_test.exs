@@ -3,7 +3,7 @@ defmodule AppTest.Parser do
 
   describe "when receiving a valid stream" do
     test "returns a chunk of records and errors" do
-      [%{ok: records, error: errors}] =
+      [%{oks: records, errors: errors}] =
         [[ok: [1, 2]], [error: "bad"], [ok: [3, 4]], [error: "super"]]
         |> Stream.map(& &1)
         |> App.Parser.chunk()
@@ -16,7 +16,7 @@ defmodule AppTest.Parser do
 
   describe "when receiving an empty stream" do
     test "returns a empty chunk of records and errors" do
-      [%{ok: records, error: errors}] =
+      [%{oks: records, errors: errors}] =
         []
         |> Stream.map(& &1)
         |> App.Parser.chunk()
