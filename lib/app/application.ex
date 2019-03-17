@@ -10,9 +10,8 @@ defmodule App.Application do
     children = [
       # Start the Ecto repository
       # Start the endpoint when the application starts
-      AppWeb.Endpoint
-      # Starts a worker by calling: App.Worker.start_link(arg)
-      # {App.Worker, arg},
+      AppWeb.Endpoint,
+      {App.LeagueCache, App.FileService.load_records()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
