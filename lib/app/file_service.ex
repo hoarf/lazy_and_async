@@ -20,6 +20,8 @@ defmodule App.FileService do
     |> Stream.map(&App.Parser.parse/1)
     |> App.Parser.chunk()
     |> Stream.map(&App.Instrumentation.dump_errors/1)
+    |> Enum.to_list()
+    |> List.flatten()
   end
 
   @doc ~S"""
@@ -31,9 +33,7 @@ defmodule App.FileService do
 
   """
   def list(records) do
-    {:ok,
-     records
-     |> Enum.to_list()}
+    {:ok, records}
   end
 
   @doc ~S"""
@@ -58,9 +58,6 @@ defmodule App.FileService do
 
   """
   def get_by(records, league, season) do
-    {:ok,
-     records
-     |> Stream.filter(&(&1.league == league and &1.season == season))
-     |> Enum.to_list()}
+    {:ok, Enum.filter(records, &(&1.league == league and &1.season == season))}
   end
 end
