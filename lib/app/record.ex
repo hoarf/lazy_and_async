@@ -23,7 +23,7 @@ defmodule App.Record do
 
   @doc ~S"""
 
-      ## Examples
+  ## Examples
 
       iex> App.Record.file_changeset(%{season: "DF1"})
       %{changes: %{season: "DF1"}}

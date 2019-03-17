@@ -1,5 +1,5 @@
 defmodule App.League do
-  @moduledoc """
+  @moduledoc ~S"""
 
   This is the domain API.
 
