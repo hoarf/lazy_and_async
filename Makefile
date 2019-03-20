@@ -13,9 +13,3 @@ build: ## Build the Docker image
         --build-arg APP_VSN=$(APP_VSN) \
         -t $(APP_NAME):$(APP_VSN)-$(BUILD) \
         -t $(APP_NAME):latest .
-
-up:
-	docker-compose up -d
-
-run: ## Run the app in Docker
-	docker run --env-file config/docker.env --expose 4000 -p 4000:4000 --rm -it $(APP_NAME):latest
