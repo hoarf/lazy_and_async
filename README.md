@@ -50,7 +50,7 @@ Elixir 1.7.4 (compiled with Erlang/OTP 21)
 - [ ] Support for Proto Buffers.
 - [x] Document the HTTP API.
 - [x] Create a Dockerfile for the application.
-- [ ] Create a Docker Compose file for the application with 1 HAProxy instance load balancing
+- [x] Create a Docker Compose file for the application with 1 HAProxy instance load balancing
 traffic across 3 instances of the application.
 - [ ] (Bonus) Create the Kubernetes deployment, service and ingress files required to replace the
 above Docker Compose environment.
