@@ -1,4 +1,8 @@
-* Requirements
+# League Endpoint
+
+A simple endpoint that exposes CSV parsed data about football leagues.
+
+## Requirements
 
 ```
 elixir --version                                                                                           [b19f87d]
@@ -7,7 +11,7 @@ Erlang/OTP 21 [erts-10.1] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads
 Elixir 1.7.4 (compiled with Erlang/OTP 21)
 ```
 
-* Development
+## Development
 
 1. Copy the data file to the folder /priv
 
@@ -27,7 +31,7 @@ Elixir 1.7.4 (compiled with Erlang/OTP 21)
 
 ```mix docs'```
 
-* Deploy
+## Deploy
 
 1. Build the image
 
@@ -37,7 +41,7 @@ Elixir 1.7.4 (compiled with Erlang/OTP 21)
 
 ```docker-compose up -d --scale webapp=3```
 
-* Features
+## Features
 
 - [x] /leagues route that lists the league and season pairs.
 - [x] /leagues/:id/seasons/:id that fetches the result for a specific season pair.
