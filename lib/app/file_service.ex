@@ -14,7 +14,7 @@ defmodule App.FileService do
 
   """
   def load_records do
-    @path
+    path()
     |> File.stream!()
     |> CSV.decode(headers: [:id | App.Record.fields()])
     |> Stream.map(&App.Parser.parse/1)
@@ -60,4 +60,6 @@ defmodule App.FileService do
   def get_by(records, league, season) do
     {:ok, Enum.filter(records, &(&1.league == league and &1.season == season))}
   end
+
+  defp path(), do: Application.app_dir(:app, @path)
 end
