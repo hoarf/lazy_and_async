@@ -1,5 +1,5 @@
 defmodule App.Record do
-  @moduleloc """
+  @moduledoc ~S"""
   Module that contains the data structure that holds the league and season info.
   """
   use Ecto.Schema
@@ -23,10 +23,9 @@ defmodule App.Record do
 
   @doc ~S"""
 
-  ## Examples
+  Changeset for input coming from the file. Always produces an insert as a change.
 
-      iex> App.Record.file_changeset(%{season: "DF1"})
-      %{changes: %{season: "DF1"}}
+  Params should be a map with fields/0 as keys
 
   """
   def file_changeset(params) do
