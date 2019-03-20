@@ -22,7 +22,6 @@ defmodule App.Record do
   end
 
   @doc ~S"""
-
   Changeset for input coming from the file. Always produces an insert as a change.
 
   Params should be a map with fields/0 as keys
