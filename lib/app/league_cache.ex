@@ -1,4 +1,8 @@
 defmodule App.LeagueCache do
+  @moduledoc ~S"""
+  Simple server that builds and servers all the data in the file.
+
+  """
   use GenServer
 
   alias App.FileService
