@@ -10,5 +10,3 @@ config :app, AppWeb.Endpoint,
 config :logger, level: :warn
 
 config :tesla, adapter: Tesla.Mock
-
-config :app, MarvelAPI, private_key: "dummy"
