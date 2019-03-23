@@ -7,7 +7,7 @@ defmodule App.Parser do
   require Logger
 
   @doc ~S"""
-  Chunk will partition the stream into records an errors.
+  Chunk will partition the stream into records and errors.
 
   """
   def chunk(stream) do
@@ -24,7 +24,7 @@ defmodule App.Parser do
   defp after_fn(acc), do: {:cont, acc, []}
 
   @doc ~S"""
-  Parses a record from the CSV in the internal representation for the system
+  Parses a record from the CSV into the internal representation for the system
   which is %App.Record. It will ignore errors from CSV.
 
   """
