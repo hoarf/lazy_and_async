@@ -5,7 +5,10 @@ defmodule App.Record do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @fields [:league, :season, :date, :hometeam, :awayteam, :fthg, :ftag, :ftr, :hthg, :htag, :htr]
+  def fields,
+    do: [:league, :season, :date, :hometeam, :awayteam, :fthg, :ftag, :ftr, :hthg, :htag, :htr]
+
+  defp regular_fields(), do: for(f <- fields(), f != :date, do: f)
 
   schema "record" do
     field(:league)
@@ -15,7 +18,7 @@ defmodule App.Record do
     field(:fthg)
     field(:ftag)
     field(:ftr)
-    field(:date)
+    field(:date, :date)
     field(:hthg)
     field(:htag)
     field(:htr)
@@ -29,8 +32,16 @@ defmodule App.Record do
   """
   def file_changeset(params) do
     %__MODULE__{}
-    |> cast(params, fields())
+    |> cast(params, regular_fields())
+    |> cast_date(params)
   end
 
-  def fields, do: @fields
+  defp cast_date(changeset, %{date: raw}) do
+    with {:ok, date} <- Timex.parse(raw, "{0D}/{0M}/{YYYY}") do
+      Ecto.Changeset.put_change(changeset, :date, date)
+    else
+      {:error, cause} ->
+        Ecto.Changeset.add_error(changeset, :date, cause)
+    end
+  end
 end
