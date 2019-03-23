@@ -3,7 +3,7 @@ defmodule AppWeb.PageControllerTest do
 
   describe "GET /leagues" do
     test "should return a list with all the leagues", %{conn: conn} do
-      assert 2371 =
+      assert 2370 =
                conn
                |> get("/leagues")
                |> json_response(:ok)

@@ -16,6 +16,7 @@ defmodule App.FileService do
   def load_records do
     path()
     |> File.stream!()
+    |> Stream.drop(1)
     |> CSV.decode(headers: [:id | App.Record.fields()])
     |> Stream.map(&App.Parser.parse/1)
     |> App.Parser.chunk()
