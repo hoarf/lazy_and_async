@@ -1,6 +1,6 @@
 Bureaucrat.start(
   writer: Bureaucrat.MarkdownWriter,
-  default_path: "priv/API_README.md",
+  default_path: "API_README.md",
   paths: [],
   titles: [],
   env_var: "DOC",

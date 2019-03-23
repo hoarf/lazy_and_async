@@ -5,7 +5,7 @@
 
 ## AppWeb.LeagueController
 ### <a id=appweb-leaguecontroller-index></a>index
-#### GET /leagues should accept a request for all the leagues
+#### List all leagues
 ##### Request
 * __Method:__ GET
 * __Path:__ /leagues
@@ -16,7 +16,7 @@
 ```
 content-type: application/json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 2m7b6i6ardbbpdsjvc000042
+x-request-id: 2m7b7bjhmns3mgt5ak000086
 ```
 * __Response body:__
 ```json
@@ -26,12 +26,11 @@ x-request-id: 2m7b6i6ardbbpdsjvc000042
     "league": "D1",
     "hometeam": "M'gladbach",
     "awayteam": "Darmstadt"
-  },
-  ...
+  }, ...
 ]
 ```
 
-#### GET /leagues/id/season/id should return a empty list when no matches
+#### List all leagues, no matches
 ##### Request
 * __Method:__ GET
 * __Path:__ /leagues/D1/seasons/NOPE
@@ -42,7 +41,7 @@ x-request-id: 2m7b6i6ardbbpdsjvc000042
 ```
 content-type: application/json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 2m7b6i6bm4qef1kas4000068
+x-request-id: 2m7b7bjh04oav3l6dg000066
 ```
 * __Response body:__
 ```json

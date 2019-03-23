@@ -6,7 +6,7 @@ defmodule AppWeb.PageControllerTest do
       conn =
         build_conn()
         |> get("/leagues")
-        |> doc
+        |> doc(description: "List all leagues", operation_id: "list_leagues")
 
       assert conn.status == 200
     end
@@ -17,7 +17,7 @@ defmodule AppWeb.PageControllerTest do
       conn =
         build_conn()
         |> get("/leagues/D1/seasons/201617")
-        |> doc
+        |> doc(description: "List all leagues, with params.", operation_id: "list_leagues")
 
       assert conn.status == 200
     end
@@ -26,7 +26,7 @@ defmodule AppWeb.PageControllerTest do
       conn =
         build_conn()
         |> get("/leagues/D1/seasons/NOPE")
-        |> doc
+        |> doc(description: "List all leagues, no matches", operation_id: "list_leagues")
 
       assert conn.status == 200
     end
