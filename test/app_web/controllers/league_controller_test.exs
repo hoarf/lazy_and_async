@@ -2,30 +2,33 @@ defmodule AppWeb.PageControllerTest do
   use AppWeb.ConnCase
 
   describe "GET /leagues" do
-    test "should return a list with all the leagues", %{conn: conn} do
-      assert 2370 =
-               conn
-               |> get("/leagues")
-               |> json_response(:ok)
-               |> Enum.count()
+    test "should accept a request for all the leagues" do
+      conn =
+        build_conn()
+        |> get("/leagues")
+        |> doc
+
+      assert conn.status == 200
     end
   end
 
   describe "GET /leagues/id/season/id" do
-    test "should return a list with all the leagues that matches", %{conn: conn} do
-      assert 306 =
-               conn
-               |> get("/leagues/D1/seasons/201617")
-               |> json_response(:ok)
-               |> Enum.count()
+    test "should accept a request with league and season id params" do
+      conn =
+        build_conn()
+        |> get("/leagues/D1/seasons/201617")
+        |> doc
+
+      assert conn.status == 200
     end
 
-    test "should return a empty list when no matches", %{conn: conn} do
-      assert 0 =
-               conn
-               |> get("/leagues/D1/seasons/NOPE")
-               |> json_response(:ok)
-               |> Enum.count()
+    test "should return a empty list when no matches" do
+      conn =
+        build_conn()
+        |> get("/leagues/D1/seasons/NOPE")
+        |> doc
+
+      assert conn.status == 200
     end
   end
 end
