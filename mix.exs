@@ -46,7 +46,8 @@ defmodule App.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:csv, "~> 2.2"},
       {:ex_doc, "~> 0.19", only: :dev},
-      {:distillery, "~> 2.0", runtime: false}
+      {:distillery, "~> 2.0", runtime: false},
+      {:timex, "~> 3.1"}
     ]
   end
 
