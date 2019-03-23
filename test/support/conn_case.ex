@@ -23,6 +23,8 @@ defmodule AppWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint AppWeb.Endpoint
+
+      import Bureaucrat.Helpers
     end
   end
 

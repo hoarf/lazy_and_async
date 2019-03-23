@@ -47,7 +47,9 @@ defmodule App.MixProject do
       {:csv, "~> 2.2"},
       {:ex_doc, "~> 0.19", only: :dev},
       {:distillery, "~> 2.0", runtime: false},
-      {:timex, "~> 3.1"}
+      {:timex, "~> 3.1"},
+      {:bureaucrat, "~> 0.2.5"},
+      {:poison, "~> 3.0"}
     ]
   end
 
