@@ -4,14 +4,23 @@ defmodule App.League do
   This is the domain API.
 
   """
-
   alias App.LeagueCache
 
-  def list() do
-    LeagueCache.list()
-  end
+  @default_page_size 20
 
-  def get_by(league, season) do
-    LeagueCache.get_by(league, season)
+  require Logger
+
+  def list(league, season, page \\ 1) do
+    {:ok, results} =
+      case {league, season} do
+        {nil, nil} ->
+          LeagueCache.all()
+
+        {league, season} ->
+          Logger.info(league)
+          LeagueCache.get_by(league, season)
+      end
+
+    {:ok, Scrivener.paginate(results, page: page, page_size: @default_page_size)}
   end
 end
