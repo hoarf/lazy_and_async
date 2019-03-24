@@ -2,31 +2,49 @@ defmodule AppWeb.PageControllerTest do
   use AppWeb.ConnCase
 
   describe "GET /leagues" do
-    test "should accept a request for all the leagues" do
+    test "accepts a request for all leagues" do
       conn =
         build_conn()
         |> get("/leagues")
-        |> doc(description: "List all leagues", operation_id: "list_leagues")
+        |> doc(operation_id: "list_leagues")
+
+      assert conn.status == 200
+    end
+
+    test "accepts page as a query param" do
+      conn =
+        build_conn()
+        |> get("/leagues?page=2")
+        |> doc(operation_id: "list_leagues")
 
       assert conn.status == 200
     end
   end
 
   describe "GET /leagues/id/season/id" do
-    test "should accept a request with league and season id params" do
+    test "accepts a request with league and season params" do
       conn =
         build_conn()
         |> get("/leagues/D1/seasons/201617")
-        |> doc(description: "List all leagues, with params.", operation_id: "list_leagues")
+        |> doc(operation_id: "list_leagues")
 
       assert conn.status == 200
     end
 
-    test "should return a empty list when no matches" do
+    test "accepts page as a query param" do
+      conn =
+        build_conn()
+        |> get("/leagues/D1/seasons/NOPE?page=3")
+        |> doc(operation_id: "list_leagues")
+
+      assert conn.status == 200
+    end
+
+    test "returns ok even when there is not matching league" do
       conn =
         build_conn()
         |> get("/leagues/D1/seasons/NOPE")
-        |> doc(description: "List all leagues, no matches", operation_id: "list_leagues")
+        |> doc(operation_id: "list_leagues")
 
       assert conn.status == 200
     end
