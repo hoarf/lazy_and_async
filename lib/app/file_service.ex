@@ -29,11 +29,11 @@ defmodule App.FileService do
 
   ## Examples
 
-      iex> App.FileService.list([%App.Record{league: "DF1", season: "201617"}])
+      iex> App.FileService.all([%App.Record{league: "DF1", season: "201617"}])
       {:ok, [%App.Record{league: "DF1", season: "201617"}]}
 
   """
-  def list(records) do
+  def all(records) do
     {:ok, records}
   end
 

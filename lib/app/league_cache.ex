@@ -17,8 +17,8 @@ defmodule App.LeagueCache do
     GenServer.call(__MODULE__, {:get_by, league, season})
   end
 
-  def list() do
-    GenServer.call(__MODULE__, :list)
+  def all() do
+    GenServer.call(__MODULE__, :all)
   end
 
   # Server
@@ -34,7 +34,7 @@ defmodule App.LeagueCache do
   end
 
   @impl true
-  def handle_call(:list, _from, state) do
-    {:reply, FileService.list(state), state}
+  def handle_call(:all, _from, state) do
+    {:reply, FileService.all(state), state}
   end
 end
