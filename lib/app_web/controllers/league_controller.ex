@@ -1,10 +1,7 @@
 defmodule AppWeb.LeagueController do
   use AppWeb, :controller
 
-  require Logger
-
   def index(conn, %{"league" => league, "season" => season, "page" => page}) do
-    Logger.info("hit 1")
     index_for(conn, App.League.list(league, season, page))
   end
 
@@ -13,7 +10,6 @@ defmodule AppWeb.LeagueController do
   end
 
   def index(conn, %{"page" => page}) do
-    Logger.info("hit 3")
     index_for(conn, App.League.list(nil, nil, page))
   end
 

@@ -8,8 +8,6 @@ defmodule App.League do
 
   @default_page_size 20
 
-  require Logger
-
   def list(league, season, page \\ 1) do
     {:ok, results} =
       case {league, season} do
@@ -17,7 +15,6 @@ defmodule App.League do
           LeagueCache.all()
 
         {league, season} ->
-          Logger.info(league)
           LeagueCache.get_by(league, season)
       end
 
