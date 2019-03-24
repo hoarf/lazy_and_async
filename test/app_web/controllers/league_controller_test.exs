@@ -40,7 +40,7 @@ defmodule AppWeb.PageControllerTest do
       assert conn.status == 200
     end
 
-    test "returns ok even when there is not matching league" do
+    test "returns ok even when there is no matching league" do
       conn =
         build_conn()
         |> get("/leagues/D1/seasons/NOPE")
