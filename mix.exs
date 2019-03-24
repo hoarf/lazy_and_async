@@ -49,6 +49,7 @@ defmodule App.MixProject do
       {:distillery, "~> 2.0", runtime: false},
       {:timex, "~> 3.1"},
       {:bureaucrat, "~> 0.2.5"},
+      {:scrivener_list, "~> 2.0"},
       {:poison, "~> 3.0"}
     ]
   end
